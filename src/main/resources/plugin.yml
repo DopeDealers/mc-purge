@@ -1,0 +1,8 @@
+name: Purge
+version: '${project.version}'
+main: cyci.org.phil.purge.Purge
+api-version: 1.19
+depend: [ TitleManager ]
+authors: [ Phil0004 ]
+description: Minecraft plugin to introduce the purge
+website: cyci.org
