@@ -40,7 +40,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-key:4.11.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-api:1.3.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-string:1.3.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-minimessage:4.11.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-gson:4.11.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-legacy:4.11.0" level="project" />
@@ -51,5 +50,15 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-commons:9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-tree:9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-analysis:9.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.Puharesource:TitleManager:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-runtime:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.reactivex:rxjava:1.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.luckperms:api:5.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.MilkBowl:VaultAPI:1.7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.bukkit:bukkit:1.13.1-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: com.github.lokka30:MicroLib:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
   </component>
 </module>

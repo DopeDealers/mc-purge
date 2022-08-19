@@ -41,6 +41,12 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>me.lokka30.microlib</pattern>
+                                    <shadedPattern>${project.groupId}.microlib</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
@@ -55,6 +61,11 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+
         <repository>
             <id>papermc-repo</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
@@ -71,6 +82,28 @@
             <artifactId>paper-api</artifactId>
             <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Puharesource</groupId>
+            <artifactId>TitleManager</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.luckperms</groupId>
+            <artifactId>api</artifactId>
+            <version>5.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.lokka30</groupId>
+            <artifactId>MicroLib</artifactId>
+            <version>3.2.1</version>
         </dependency>
     </dependencies>
 </project>
