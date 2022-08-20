@@ -3,7 +3,6 @@ version: '${project.version}'
 main: cyci.org.phil.purge.Purge
 api-version: 1.19
 depend:
-  - TitleManager
   - Vault
   - LuckPerms
 softdepend:
@@ -13,8 +12,8 @@ description: Minecraft plugin to introduce the purge
 website: cyci.org
 
 commands:
-  test:
-    usage: /test
-    description: Test command for the purge gamemode
-    permission: purge.commands.test
+  purge:
+    usage: /purge
+    description: Main purge command
+    permission: purge.commands.purge
 

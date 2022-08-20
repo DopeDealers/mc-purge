@@ -23,8 +23,9 @@
 hs_err_pid*
 replay_pid*
 target/
-.idea/
+.idea/*
 .idea/discord.xml
 .idea/jarRepositories.xml
 .idea/jarRepositories.xml
 .idea/discord.xml
+src/main/resources/pack/

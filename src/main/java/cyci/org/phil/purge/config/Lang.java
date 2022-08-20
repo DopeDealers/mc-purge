@@ -15,7 +15,10 @@ public enum Lang {
     NO_PERM("message.no_perm", "{1} &fYou do not have the permission node:&r &3{0}"),
     NO_ARG("message.no_arg", "{1} &cYou did not provide an argument &6{0}"),
     PURGE_START("message.purge.start", "{1} &4THE PURGE HAS BEGUN"),
-    PURGE_END("message.purge.end", "{1} &aThe purge clock has struck 0. see you soon.");
+    PURGE_STARTED("purge.started", "false"),
+    PURGE_END("message.purge.end", "{1} &aThe purge clock has struck 0. see you soon."),
+    PURGE_COUNTDOWM("message.purge.countdown", "10"),
+    PURGE_TIME_LIMIT("message.purge.countdown", "1");
 
     private final String path;
 
@@ -52,6 +55,9 @@ public enum Lang {
     }
     public String getValue() {
         return LANG.getString(this.path, this.def);
+    }
+    public boolean getBoolean() {
+        return LANG.getBoolean(this.path, Boolean.parseBoolean(this.def));
     }
 
     public int getInt() {

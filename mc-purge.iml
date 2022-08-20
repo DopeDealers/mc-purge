@@ -60,5 +60,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: com.github.lokka30:MicroLib:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ericdebouwer:RegionClaimPlus:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: co.aikar:acf-paper:0.5.1-SNAPSHOT" level="project" />
   </component>
 </module>

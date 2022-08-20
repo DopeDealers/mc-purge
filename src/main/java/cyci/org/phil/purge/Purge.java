@@ -1,22 +1,25 @@
 package cyci.org.phil.purge;
 
-import cyci.org.phil.purge.api.CommandListener;
-import cyci.org.phil.purge.api.CommandRegistry;
+import co.aikar.commands.PaperCommandManager;
+import cyci.org.phil.purge.commands.PurgeCommand;
 import cyci.org.phil.purge.config.ConfigWrapper;
 import cyci.org.phil.purge.config.Lang;
-import kotlin.Suppress;
+import cyci.org.phil.purge.listeners.PurgeDamageListener;
+import cyci.org.phil.purge.player.PurgePlayerHandler;
+import cyci.org.phil.purge.player.PurgePlayerRegistry;
+import cyci.org.phil.purge.utils.SaveTimer;
 import net.luckperms.api.LuckPerms;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.PluginCommand;
-import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class Purge extends JavaPlugin {
@@ -24,10 +27,22 @@ public final class Purge extends JavaPlugin {
     private static Chat chat = null;
     private static Economy econ = null;
     private static LuckPerms api;
+    //private static TitleManagerAPI tmapi;
     public ConfigWrapper messagesFile = new ConfigWrapper(this, "/", "messages.yml");
+    // taken from https://github.com/JordanOsterberg/Minigame-Template/blob/master/src/me/potato/minigame/Main.java
+    public ArrayList<Player> alive = new ArrayList<>();
+    public ArrayList<Player> spectating = new ArrayList<>();
 
     public static Purge getInstance() {
         return Instance;
+    }
+    private GameStates gamestates;
+
+    public GameStates getGamestate() {
+        return this.gamestates;
+    }
+    public void setGamestate(GameStates gamestate) {
+        this.gamestates = gamestate;
     }
 
     @Override
@@ -39,8 +54,20 @@ public final class Purge extends JavaPlugin {
         setupEconomy();
         luckPermsRegistry();
         setupChat();
-        new CommandRegistry();
+        PaperCommandManager manager = new PaperCommandManager(getInstance());
+        manager.enableUnstableAPI("brigadier");
+        getServer().getPluginManager().registerEvents((Listener) new PurgeDamageListener(), (Plugin)this);
+        // optional: enable unstable api to use help
+        manager.enableUnstableAPI("help");
+        manager.registerCommand(new PurgeCommand());
+        setGamestate(GameStates.WAITING_FOR_PLAYERS);
+        //tmapi = (TitleManagerAPI) Bukkit.getServer().getPluginManager().getPlugin("TitleManager");
 
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            PurgePlayerHandler pplayer = new PurgePlayerHandler(player);
+            PurgePlayerRegistry.registerPlayer(pplayer);
+        });
+        (new SaveTimer()).runTaskTimer((Plugin)this, 20L, 20L);
     }
 
     @Override
@@ -73,7 +100,6 @@ public final class Purge extends JavaPlugin {
         console.sendMessage(" ");
         console.sendMessage("§8*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
     }
-
     public void luckPermsRegistry() {
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) {
@@ -114,4 +140,7 @@ public final class Purge extends JavaPlugin {
     public static LuckPerms getLuckPerms() {
         return api;
     }
+//    public static TitleManagerAPI getTmapi() {
+//        return tmapi;
+//    }
 }
