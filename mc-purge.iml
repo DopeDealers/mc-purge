@@ -64,6 +64,6 @@
     <orderEntry type="library" name="Maven: co.aikar:acf-paper:0.5.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.bstats:bstats-bukkit:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.bstats:bstats-base:3.0.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.rylinaux:PlugMan:2.2.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: me.clip:placeholderapi:2.10.7" level="project" />
   </component>
 </module>

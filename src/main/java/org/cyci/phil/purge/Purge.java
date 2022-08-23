@@ -5,6 +5,7 @@ import org.cyci.phil.purge.commands.PurgeCommand;
 import org.cyci.phil.purge.config.ConfigWrapper;
 import org.cyci.phil.purge.config.Lang;
 import org.cyci.phil.purge.listeners.PurgeDamageListener;
+import org.cyci.phil.purge.papi.PurgePlaceholder;
 import org.cyci.phil.purge.player.PurgePlayerHandler;
 import org.cyci.phil.purge.player.PurgePlayerRegistry;
 import org.cyci.phil.purge.utils.PurgeHourlyTimer;
@@ -58,11 +59,9 @@ public final class Purge extends JavaPlugin {
         PaperCommandManager manager = new PaperCommandManager(getInstance());
         manager.enableUnstableAPI("brigadier");
         getServer().getPluginManager().registerEvents((Listener) new PurgeDamageListener(), (Plugin)this);
-        // optional: enable unstable api to use help
         manager.registerCommand(new PurgeCommand());
         setGamestate(GameStates.WAITING_FOR_PLAYERS);
-        //tmapi = (TitleManagerAPI) Bukkit.getServer().getPluginManager().getPlugin("TitleManager");
-
+        new PurgePlaceholder().register();
         Bukkit.getOnlinePlayers().forEach(player -> {
             PurgePlayerHandler pplayer = new PurgePlayerHandler(player);
             PurgePlayerRegistry.registerPlayer(pplayer);

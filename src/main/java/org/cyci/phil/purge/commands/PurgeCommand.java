@@ -31,8 +31,8 @@ public class PurgeCommand extends BaseCommand {
     public void onTest(Player sender) {
         //PurgeHandler.startCountDown(sender.getWorld());
         //new ActionBar().sendTitle(Objects.requireNonNull(sender.getPlayer()), C.c("hehe"), C.c("hehet"));
-//        PurgeHandler.startCountDown(sender.getWorld());
-        Bukkit.getPluginManager().disablePlugin(RegionClaimPlus.g());
+        PurgeHandler.startCountDown();
+
     }
     @Subcommand("help")
     public void onHelp(Player sender) {

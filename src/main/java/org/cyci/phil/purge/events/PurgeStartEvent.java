@@ -18,12 +18,6 @@ public class PurgeStartEvent extends Event {
     public PurgeStartEvent(PurgeHandler e) {
 
     }
-    public int getPurgeTimer() {
-        return PurgeHandler.purgeTimer;
-    }
-    public CountdownTimer test() {
-       return PurgeHandler.purgeTimerCountdown;
-    }
 
     public HandlerList getHandlers() {
         return handlers;

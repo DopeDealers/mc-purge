@@ -43,7 +43,8 @@ public class PurgeHourlyTimer extends BukkitRunnable {
                             ab.sendTitle(message.getPlayer(), C.c(Lang.PURGE_END.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})), C.c("&a"));
                             PurgeHandler.purgeStarted = false;
                             try {
-                                Bukkit.getPluginManager().disablePlugin(region);
+                                assert region != null;
+                                Bukkit.getPluginManager().enablePlugin(region);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
