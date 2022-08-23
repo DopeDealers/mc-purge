@@ -1,4 +1,4 @@
-package cyci.org.phil.purge;
+package org.cyci.phil.purge;
 
 /**
  * @author - Phil

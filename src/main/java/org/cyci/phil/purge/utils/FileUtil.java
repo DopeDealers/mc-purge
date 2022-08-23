@@ -1,4 +1,4 @@
-package cyci.org.phil.purge.utils;
+package org.cyci.phil.purge.utils;
 
 /**
  * @author - Phil
@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import cyci.org.phil.purge.Purge;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

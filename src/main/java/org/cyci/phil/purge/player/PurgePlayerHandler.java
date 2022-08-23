@@ -1,8 +1,8 @@
-package cyci.org.phil.purge.player;
+package org.cyci.phil.purge.player;
 
-import cyci.org.phil.purge.GameStates;
-import cyci.org.phil.purge.Purge;
-import cyci.org.phil.purge.utils.FileUtil;
+import org.cyci.phil.purge.GameStates;
+import org.cyci.phil.purge.Purge;
+import org.cyci.phil.purge.utils.FileUtil;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 

@@ -1,6 +1,6 @@
 name: Purge
 version: '${project.version}'
-main: cyci.org.phil.purge.Purge
+main: org.cyci.phil.purge.Purge
 api-version: 1.19
 depend:
   - Vault

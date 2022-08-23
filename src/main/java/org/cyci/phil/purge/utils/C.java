@@ -1,6 +1,5 @@
-package cyci.org.phil.purge.utils;
+package org.cyci.phil.purge.utils;
 
-import cyci.org.phil.purge.Purge;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 

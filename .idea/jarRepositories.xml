@@ -27,6 +27,11 @@
       <option name="url" value="https://repo.aikar.co/content/groups/aikar/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="PlugMan" />
+      <option name="name" value="PlugMan" />
+      <option name="url" value="https://raw.githubusercontent.com/TheBlackEntity/PlugMan/repository/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="puha-repo" />
       <option name="name" value="puha-repo" />
       <option name="url" value="http://repo.puha.io/repo/" />

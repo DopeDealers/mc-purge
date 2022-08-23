@@ -1,4 +1,4 @@
-package cyci.org.phil.purge.config;
+package org.cyci.phil.purge.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

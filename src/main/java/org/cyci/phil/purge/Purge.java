@@ -1,13 +1,14 @@
-package cyci.org.phil.purge;
+package org.cyci.phil.purge;
 
 import co.aikar.commands.PaperCommandManager;
-import cyci.org.phil.purge.commands.PurgeCommand;
-import cyci.org.phil.purge.config.ConfigWrapper;
-import cyci.org.phil.purge.config.Lang;
-import cyci.org.phil.purge.listeners.PurgeDamageListener;
-import cyci.org.phil.purge.player.PurgePlayerHandler;
-import cyci.org.phil.purge.player.PurgePlayerRegistry;
-import cyci.org.phil.purge.utils.SaveTimer;
+import org.cyci.phil.purge.commands.PurgeCommand;
+import org.cyci.phil.purge.config.ConfigWrapper;
+import org.cyci.phil.purge.config.Lang;
+import org.cyci.phil.purge.listeners.PurgeDamageListener;
+import org.cyci.phil.purge.player.PurgePlayerHandler;
+import org.cyci.phil.purge.player.PurgePlayerRegistry;
+import org.cyci.phil.purge.utils.PurgeHourlyTimer;
+import org.cyci.phil.purge.utils.SaveTimer;
 import net.luckperms.api.LuckPerms;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -58,7 +59,6 @@ public final class Purge extends JavaPlugin {
         manager.enableUnstableAPI("brigadier");
         getServer().getPluginManager().registerEvents((Listener) new PurgeDamageListener(), (Plugin)this);
         // optional: enable unstable api to use help
-        manager.enableUnstableAPI("help");
         manager.registerCommand(new PurgeCommand());
         setGamestate(GameStates.WAITING_FOR_PLAYERS);
         //tmapi = (TitleManagerAPI) Bukkit.getServer().getPluginManager().getPlugin("TitleManager");
@@ -68,6 +68,8 @@ public final class Purge extends JavaPlugin {
             PurgePlayerRegistry.registerPlayer(pplayer);
         });
         (new SaveTimer()).runTaskTimer((Plugin)this, 20L, 20L);
+        // 360000 144000
+        new PurgeHourlyTimer().runTaskTimerAsynchronously(getInstance(), 360000, 360000);
     }
 
     @Override
@@ -140,7 +142,8 @@ public final class Purge extends JavaPlugin {
     public static LuckPerms getLuckPerms() {
         return api;
     }
-//    public static TitleManagerAPI getTmapi() {
+
+    //    public static TitleManagerAPI getTmapi() {
 //        return tmapi;
 //    }
 }

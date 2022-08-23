@@ -1,4 +1,4 @@
-package cyci.org.phil.purge.utils;
+package org.cyci.phil.purge.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

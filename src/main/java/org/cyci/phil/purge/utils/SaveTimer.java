@@ -1,6 +1,6 @@
-package cyci.org.phil.purge.utils;
+package org.cyci.phil.purge.utils;
 
-import cyci.org.phil.purge.player.PurgePlayerRegistry;
+import org.cyci.phil.purge.player.PurgePlayerRegistry;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
 

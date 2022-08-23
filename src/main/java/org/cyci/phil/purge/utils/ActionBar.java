@@ -1,11 +1,8 @@
-package cyci.org.phil.purge.utils;
+package org.cyci.phil.purge.utils;
 
 import net.kyori.adventure.audience.Audience;
-import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.title.Title;
-
-import java.time.Duration;
 
 /**
  * @author - Phil

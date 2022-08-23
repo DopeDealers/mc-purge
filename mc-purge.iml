@@ -62,5 +62,8 @@
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.ericdebouwer:RegionClaimPlus:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: co.aikar:acf-paper:0.5.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.bstats:bstats-bukkit:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.bstats:bstats-base:3.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.rylinaux:PlugMan:2.2.9" level="project" />
   </component>
 </module>

@@ -1,4 +1,4 @@
-package cyci.org.phil.purge.config;
+package org.cyci.phil.purge.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -17,8 +17,7 @@ public enum Lang {
     PURGE_START("message.purge.start", "{1} &4THE PURGE HAS BEGUN"),
     PURGE_STARTED("purge.started", "false"),
     PURGE_END("message.purge.end", "{1} &aThe purge clock has struck 0. see you soon."),
-    PURGE_COUNTDOWM("message.purge.countdown", "10"),
-    PURGE_TIME_LIMIT("message.purge.countdown", "1");
+    PURGE_COUNTDOWM("message.purge.countdown", "10");
 
     private final String path;
 

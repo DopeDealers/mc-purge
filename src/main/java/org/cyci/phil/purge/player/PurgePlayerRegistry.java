@@ -1,4 +1,4 @@
-package cyci.org.phil.purge.player;
+package org.cyci.phil.purge.player;
 
 import com.google.common.collect.ImmutableList;
 import org.bukkit.entity.Player;

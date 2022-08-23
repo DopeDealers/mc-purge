@@ -1,9 +1,10 @@
-package cyci.org.phil.purge.listeners;
+package org.cyci.phil.purge.listeners;
 
-import cyci.org.phil.purge.config.Lang;
-import cyci.org.phil.purge.player.PurgePlayerHandler;
-import cyci.org.phil.purge.utils.C;
-import cyci.org.phil.purge.utils.PurgeHandler;
+import org.cyci.phil.purge.config.Lang;
+import org.cyci.phil.purge.events.PurgeStartEvent;
+import org.cyci.phil.purge.player.PurgePlayerHandler;
+import org.cyci.phil.purge.utils.C;
+import org.cyci.phil.purge.utils.PurgeHandler;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
