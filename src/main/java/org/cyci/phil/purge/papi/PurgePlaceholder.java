@@ -25,7 +25,7 @@ public class PurgePlaceholder extends PlaceholderExpansion  {
     public @NotNull String getVersion() {
         return "1.0.0";
     }
-    
+
     @Override
     public boolean persist() {
         return true; // This is required or else PlaceholderAPI will unregister the Expansion on reload

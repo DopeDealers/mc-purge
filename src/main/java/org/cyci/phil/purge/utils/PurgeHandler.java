@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 public class PurgeHandler {
 
-    public static boolean purgeStarted;
+    public static boolean purgeStarted = false;
     public static int purgeCountDown = Lang.PURGE_COUNTDOWM.getInt();
     public static boolean playersCanAttack = false;
 
@@ -39,14 +39,17 @@ public class PurgeHandler {
         if (!purgeStarted && Bukkit.getServer().getOnlinePlayers().size() < 2) {
             Plugin region = Bukkit.getPluginManager().getPlugin("RegionClaimPlus");
             CountdownTimer timer = new CountdownTimer(Purge.getInstance(),purgeCountDown,
-                    () -> Bukkit.getLogger().info("Timer beginning"),
+                    () -> Bukkit.getLogger().info("Purge: Timer beginning 10s"),
                     () -> {
                         Bukkit.getWorlds().forEach(world -> {
                             world.getPlayers().forEach(message -> {
                                 message.playSound(Objects.requireNonNull(message.getPlayer()).getLocation(), Sound.MUSIC_DISC_11, Float.MAX_VALUE, 1.0f);
                                 message.sendMessage(C.c(Lang.PURGE_START.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})));
-                                ActionBar ab = new ActionBar();
-                                ab.sendTitle(message.getPlayer(), C.c(Lang.PURGE_START.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})), C.c("&cAll rules, claims, etc are null this point on until the end.."));
+                                if (Lang.PURGE_ACTION_BARS.getBoolean()) {
+                                    ActionBar ab = new ActionBar();
+                                    ab.sendTitle(message.getPlayer(), C.c(Lang.PURGE_START.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})), C.c("&cAll rules, claims, etc are null this point on until the end.."));
+                                }
+                                new PurgeHourlyTimer().timer.scheduleTimer();
                                 purgeStarted = true;
                                 try {
                                     assert region != null;
@@ -60,7 +63,7 @@ public class PurgeHandler {
                     (t) -> {
                         Bukkit.getWorlds().forEach(world -> {
                                     world.getPlayers().forEach(message -> {
-                                        message.sendMessage(C.c(Lang.PREFIX.getConfigValue(null) + " &7The purge will begin in.. &r" + t.getSecondsLeft()));
+                                        message.sendMessage(C.c(Lang.PURGE_COUNTDOWN_MESSAGE_START.getConfigValue(new String[]{String.valueOf(t.getSecondsLeft()), Lang.PREFIX.getConfigValue(null)})));
                                     });
                                 });
                         //purgeStarted = true;

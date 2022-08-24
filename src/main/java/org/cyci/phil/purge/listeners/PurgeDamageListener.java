@@ -27,8 +27,7 @@ public class PurgeDamageListener implements Listener {
         if (e.getDamager().getType().equals(EntityType.PLAYER) && e.getEntity().getType().equals(EntityType.PLAYER)) {
             if (!PurgeHandler.purgeStarted) {
                 e.setCancelled(true);
-                ((Player) e.getDamager()).setHealth(((Player) e.getDamager()).getHealth() - 0.1);
-                e.getDamager().sendMessage(C.c(Lang.PREFIX.getConfigValue(null) + " &7Please do not hit players the purge has not begun."));
+                e.getDamager().sendMessage(C.c(Lang.PURGE_HIT_PLAYER.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})));
             }
         }
 

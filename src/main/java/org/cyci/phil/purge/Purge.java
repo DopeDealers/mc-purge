@@ -34,6 +34,7 @@ public final class Purge extends JavaPlugin {
     // taken from https://github.com/JordanOsterberg/Minigame-Template/blob/master/src/me/potato/minigame/Main.java
     public ArrayList<Player> alive = new ArrayList<>();
     public ArrayList<Player> spectating = new ArrayList<>();
+    public int countdownHolder;
 
     public static Purge getInstance() {
         return Instance;
@@ -61,7 +62,7 @@ public final class Purge extends JavaPlugin {
         getServer().getPluginManager().registerEvents((Listener) new PurgeDamageListener(), (Plugin)this);
         manager.registerCommand(new PurgeCommand());
         setGamestate(GameStates.WAITING_FOR_PLAYERS);
-        new PurgePlaceholder().register();
+        //new PurgePlaceholder().register();
         Bukkit.getOnlinePlayers().forEach(player -> {
             PurgePlayerHandler pplayer = new PurgePlayerHandler(player);
             PurgePlayerRegistry.registerPlayer(pplayer);
