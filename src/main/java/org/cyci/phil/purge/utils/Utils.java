@@ -11,8 +11,8 @@ import java.math.BigDecimal;
  */
 public class Utils {
 
-    // modified https://stackoverflow.com/a/6118964
-    public static int[] splitToComponentTimes(BigDecimal biggy)
+    // modified from https://stackoverflow.com/a/6118964
+    public static String splitToComponentTimes(BigDecimal biggy)
     {
         long longVal = biggy.longValue();
         int hours = (int) longVal / 3600;
@@ -20,8 +20,11 @@ public class Utils {
         int mins = remainder / 60;
         remainder = remainder - mins * 60;
         int secs = remainder;
+        String total = "";
+        if (hours > 0) total = total.concat(hours +"hr ");
+        if (mins > 0) total = total.concat(mins + "m ");
+        if (secs > 0) total = total.concat(secs + "s");
 
-        int[] ints = {hours , mins , secs};
-        return ints;
+        return total;
     }
 }

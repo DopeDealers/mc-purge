@@ -2,6 +2,7 @@ package org.cyci.phil.purge.utils;
 
 import com.ericdebouwer.regionclaimplus.RegionClaimPlus;
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
@@ -25,13 +26,13 @@ public class PurgeHourlyTimer extends BukkitRunnable {
     public CountdownTimer timer = new CountdownTimer(Purge.getInstance(), 3600,
             () -> Bukkit.getLogger().info("Purge: Timer beginning 1hr"),
             () -> {
-                Bukkit.getWorlds().forEach(world -> {
-                    world.getPlayers().forEach(message -> {
-                        message.playSound(Objects.requireNonNull(message.getPlayer()).getLocation(), Sound.ENTITY_PILLAGER_CELEBRATE, Float.MAX_VALUE, 1.0f);
-                        message.sendMessage(C.c(Lang.PURGE_END.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})));
+                Purge.getInstance().getServer().getOnlinePlayers().forEach(players -> {
+
+                        players.playSound(Objects.requireNonNull(players.getPlayer()).getLocation(), Sound.ENTITY_PILLAGER_CELEBRATE, Float.MAX_VALUE, 1.0f);
+                        players.sendMessage(C.c(Lang.PURGE_END.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})));
                         if (Lang.PURGE_ACTION_BARS.getBoolean()) {
                             ActionBar ab = new ActionBar();
-                            ab.sendTitle(message.getPlayer(), C.c(Lang.PURGE_END.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})), C.c("&a"));
+                            ab.sendTitle(players.getPlayer(), C.c(Lang.PURGE_END.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null)})), C.c("&a"));
                         }
                         PurgeHandler.purgeStarted = false;
                         try {
@@ -41,16 +42,13 @@ public class PurgeHourlyTimer extends BukkitRunnable {
                             e.printStackTrace();
                         }
                     });
-                });
             },
             (t) -> {
                 Purge.getInstance().countdownHolder = t.getSecondsLeft();
-                if (t.getSecondsLeft() == 10) {
-                    Bukkit.getWorlds().forEach(world -> {
-                        world.getPlayers().forEach(message -> {
-                            message.sendMessage(C.c(Lang.PURGE_COUNTDOWN_MESSAGE_END.getConfigValue(new String[]{String.valueOf(t.getSecondsLeft()), Lang.PREFIX.getConfigValue(null)})));
+                if (t.getSecondsLeft() <= 10) {
+                    Purge.getInstance().getServer().getOnlinePlayers().forEach(players -> {
+                            players.sendMessage(C.c(Lang.PURGE_COUNTDOWN_MESSAGE_END.getConfigValue(new String[]{String.valueOf(t.getSecondsLeft()), Lang.PREFIX.getConfigValue(null)})));
                         });
-                    });
                     //purgeStarted = true;
                 }
             });

@@ -17,11 +17,13 @@ public enum Lang {
     PURGE_START("message.purge.start", "{1} &4THE PURGE HAS BEGUN"),
     PURGE_STARTED("purge.config.started", "false"),
     PURGE_ACTION_BARS("purge.config.actionbars", "true"),
+    PURGE_ACTION_BAR_END("message.purge.action_bars.end", "{1}"),
+    PURGE_ACTiON_BAR_START("message.purge.action_bars.end", "{1}"),
     PURGE_END("message.purge.end", "{1} &aThe purge clock has struck 0. see you soon."),
     PURGE_COUNTDOWM("message.purge.countdown", "10"),
     PURGE_COUNTDOWN_MESSAGE_START("message.purge.countdown.start", "{1} &7The purge will begin in.. &r{0}"),
     PURGE_COUNTDOWN_MESSAGE_END("message.purge.countdown.end", "{1} &7The purge will end in.. &a{0}"),
-    PURGE_ON_GOING("message.purge.on_going", "{1} &7The current timer is {2}hr {3}m {4}s"),
+    PURGE_ON_GOING("message.purge.on_going", "{1} &7The current purge timer is {2}"),
     PURGE_HIT_PLAYER("message.purge.player_hit", "{1} &7Please do not hit players the purge has not begun.");
 
     private final String path;

@@ -48,8 +48,8 @@ public class PurgeCommand extends BaseCommand {
         if (!PurgeHandler.purgeStarted) {
             sender.sendMessage(C.c("&aThe purge has not begun yet! relax and enjoy"));
         } else {
-            int[] test = Utils.splitToComponentTimes(BigDecimal.valueOf(Purge.getInstance().countdownHolder));
-            sender.sendMessage(C.c(Lang.PURGE_ON_GOING.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null), String.valueOf(test[0]), String.valueOf(test[1]), String.valueOf(test[2])})));
+            String timerFormat = Utils.splitToComponentTimes(BigDecimal.valueOf(Purge.getInstance().countdownHolder));
+            sender.sendMessage(C.c(Lang.PURGE_ON_GOING.getConfigValue(new String[]{"", Lang.PREFIX.getConfigValue(null), timerFormat})));
         }
     }
     @CommandPermission("purge.commands.test")
